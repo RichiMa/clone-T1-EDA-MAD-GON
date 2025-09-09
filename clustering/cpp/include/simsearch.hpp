@@ -1,15 +1,29 @@
 #ifndef _SIM_SEARCH_HPP
 #define _SIM_SEARCH_HPP
 
-class SimSearch{
+#include "matrix.hpp"
+#include "cluster.hpp"
+#include <vector>
+
+// Estructura de resultado con métricas
+struct SearchResult {
+    std::vector<size_t> top;   // índices de los vecinos
+    std::vector<float> dists;  // distancias correspondientes
+    long long comparisons;     // número de comparaciones
+    double time_no_sort;       // ms antes de ordenar
+    double time_total;         // ms total
+};
+
+class SimSearch {
 private:
-    const Matrix &mat_data; // data to be processed
-    const Matrix &mat_clusters; // centroids to be used
+    const Matrix &mat_data;      // dataset
+    const Cluster &mat_clusters; // clusters/centroides
 
 public:
-    SimSearch(Matrix, clusters);
-    std::vector<size_t> search_with_clusters(const float *query,  top_k);
-    std::vector<size_t> search_without(const float *query, top_k);
-}
+    SimSearch(const Matrix &mat, const Cluster &clust);
 
-#endif 
+    SearchResult search_without(const float* query, size_t top_k);
+    SearchResult search_with_clusters(const float* query, size_t top_k);
+};
+
+#endif

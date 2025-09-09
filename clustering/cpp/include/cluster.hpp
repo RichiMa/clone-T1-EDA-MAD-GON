@@ -15,9 +15,10 @@ class Cluster{
         void compute_clusters();
         void update_centroids();
         void applyClustering();
-        const float *getCentroid(size_t i);
-        std::vector<size_t> getInds(size_t i);
+        const float *getCentroid(size_t i) const;
+        std::vector<size_t> getInds(size_t i) const;
         void print_clusters() const;
+        size_t get_k() const; // Returns the number of clusters
         virtual ~Cluster();
 };
 #endif

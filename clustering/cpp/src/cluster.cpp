@@ -79,16 +79,21 @@ void Cluster::applyClustering(){
     delete[] centroids_1;    
 }
 
-const float* Cluster::getCentroid(size_t i){
+const float* Cluster::getCentroid(size_t i) const{
     return mat_centroids.getRow(i);
 }
 
-std::vector<size_t> Cluster::getInds(size_t i){
+std::vector<size_t> Cluster::getInds(size_t i) const{
     return inds[i];
 }
 
 void Cluster::print_clusters() const{
     mat_centroids.show();
+}
+
+size_t Cluster::get_k() const
+{
+    return k_clusters;
 }
 
 Cluster::~Cluster(){
