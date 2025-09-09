@@ -37,4 +37,7 @@ Despues escribir en la consola: cmake ..
 Siguiente: make
 Finalmente: ./test
 
+Integrantes:
+Ricarod Madariaga
+Rafael González
 
