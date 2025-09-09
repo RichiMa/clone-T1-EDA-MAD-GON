@@ -31,3 +31,10 @@ Please, to install the dependencies consult the Chapter 1 of the guide [book](ht
 ## Running
 - ./test  (_run executable_)
 
+PASOS PARA EJECUTAR EL CODIGO:
+primero ubicarse en ../eda_cpp/clustering/cpp/build
+Despues escribir en la consola: cmake ..
+Siguiente: make
+Finalmente: ./test
+
+
